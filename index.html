@@ -27,13 +27,13 @@
             padding: 20px 0 40px;
         }
         .logo-img {
-    width: 60px; /* Atur lebar logo yang diinginkan (contoh: 60px) */
-    height: auto; /* Mempertahankan rasio aspek gambar */
-    margin-bottom: 5px;
-    display: block;
-    margin-left: auto; /* Untuk menengahkan gambar */
-    margin-right: auto; /* Untuk menengahkan gambar */
-}
+            width: 60px;
+            height: auto;
+            margin-bottom: 5px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
         .header-section h1 {
             font-size: 2.5em;
             font-weight: bold;
@@ -42,23 +42,29 @@
         }
         .header-section h2 {
             font-size: 1.5em;
-            color: #007bff; /* Biru untuk Judul */
+            color: #007bff; 
             margin-bottom: 10px;
         }
         .header-section p {
             color: #666;
             margin-bottom: 0;
         }
+        
+        /* Layout Grid (Dikosongkan agar kartu menumpuk secara alami) */
+        .action-grid {
+            /* Dibiarkan kosong, kartu menumpuk karena display: block; */
+        }
 
         /* Styling Kartu Aksi */
         .action-card {
             background-color: white;
-            padding: 30px 20px; /* Padding sedikit dikurangi agar 6 kartu muat lebih baik */
-            margin-bottom: 20px;
+            padding: 30px 20px;
+            margin-bottom: 20px; /* Jarak antar tombol/kartu */
             border-radius: 15px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             text-decoration: none;
             display: block;
+            text-align: center; 
             position: relative;
             overflow: hidden; 
         }
@@ -76,6 +82,7 @@
         .card-subtitle {
             font-size: 0.9em;
             color: #999;
+            margin-bottom: 15px; /* Jarak ke garis biru */
         }
 
         /* Garis Pemisah Melengkung Penuh */
@@ -83,31 +90,39 @@
             width: 100%;
             height: 10px;
             border-radius: 0 0 50% 50% / 0 0 100% 100%;
-            margin: 20px 0;
+            position: absolute; 
+            bottom: 0;
+            left: 0;
         }
-        /* Penyesuaian Warna Aksi Baru */
-        .divider-teal { background-color: #20c997; } /* Warna Teal/Cyan */
-        .divider-purple { background-color: #6f42c1; } /* Warna Ungu */
         
-        .divider-green { background-color: #28a745; }
-        .divider-red { background-color: #dc3545; }
+        /* Pewarnaan */
+        .divider-dashboard { background-color: #fd7e14; }
+        .text-dashboard { color: #fd7e14; }
+        .dashboard-card { background-color: #fff4e6; }
+
         .divider-blue { background-color: #007bff; }
-        .divider-gray { background-color: #ccc; }
-
-        /* Warna Aksi & Kartu */
         .text-blue { color: #007bff; }
-        .text-green { color: #28a745; }
-        .text-red { color: #dc3545; }
-        .text-gray { color: #6c757d; }
-        .text-teal { color: #20c997; } 
-        .text-purple { color: #6f42c1; }
-
         .blue-card { background-color: #f7f9fc; }
+
+        .divider-green { background-color: #28a745; }
+        .text-green { color: #28a745; }
         .green-card { background-color: #e6f7ef; }
+
+        .divider-red { background-color: #dc3545; }
+        .text-red { color: #dc3545; }
         .red-card { background-color: #ffe6e6; }
-        .gray-card { background-color: #f7f9fb; }
-        .teal-card { background-color: #e0f7f3; }
+
+        .divider-purple { background-color: #6f42c1; }
+        .text-purple { color: #6f42c1; }
         .purple-card { background-color: #f3e6ff; }
+        
+        .divider-teal { background-color: #20c997; } 
+        .text-teal { color: #20c997; }
+        .teal-card { background-color: #e0f7f3; } 
+
+        .divider-gray { background-color: #ccc; } 
+        .text-gray { color: #6c757d; } 
+        .gray-card { background-color: #f7f9fb; }
         
         /* Footer */
         .footer {
@@ -119,9 +134,7 @@
     </style>
     
     <script>
-        // Fungsi untuk menampilkan pesan pop-up
         function showDevelopmentMessage(event) {
-            // Menghentikan aksi default (mengikuti link)
             event.preventDefault(); 
             alert("Fungsi akan dikembangkan di masa yang akan datang. Terima kasih.");
         }
@@ -138,47 +151,58 @@
             <p>Kelola aset dan laporkan masalah peralatan Anda dengan cepat dan efisien.</p>
         </div>
         
-        <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSCBpDrZVBd9ntn0CUtkuBPT6SWRw5rp4E8ZGkc8Mdf46foYB2aI3MCEvExPvfNGcxSirkFp8tNAmUP/pubhtml?gid=474971272&single=true" target="_blank" class="action-card blue-card">
-            <i class="fas fa-clipboard-list icon-small text-blue"></i>
-            <div class="card-title text-blue">Lihat Data Inventory</div>
-            <div class="card-subtitle">Daftar lengkap aset dan riwayat</div>
-            <div class="divider divider-blue curve-bottom"></div>
-        </a>
-        
-        <a href="https://forms.gle/KipLYadAKiyEDsLt7" target="_blank" class="action-card green-card">
-            <i class="fas fa-plus-circle icon-small text-green"></i>
-            <div class="card-title text-green">Tambahkan Data Inventory</div>
-            <div class="card-subtitle">Input aset baru ke dalam sistem</div>
-            <div class="divider divider-green curve-bottom"></div>
-        </a>
+        <div class="action-grid">
+            
+            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSCBpDrZVBd9ntn0CUtkuBPT6SWRw5rp4E8ZGkc8Mdf46foYB2aI3MCEvExPvfNGcxSirkFp8tNAmUP/pubhtml?gid=530341638&single=true" target="_blank" class="action-card dashboard-card">
+                <i class="fas fa-chart-line icon-small text-dashboard"></i>
+                <div class="card-title text-dashboard">Dashboard</div>
+                <div class="card-subtitle">Visualisasi performa dan status alat</div>
+                <div class="divider divider-dashboard"></div>
+            </a>
+            
+            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSCBpDrZVBd9ntn0CUtkuBPT6SWRw5rp4E8ZGkc8Mdf46foYB2aI3MCEvExPvfNGcxSirkFp8tNAmUP/pubhtml?gid=474971272&single=true" target="_blank" class="action-card blue-card">
+                <i class="fas fa-clipboard-list icon-small text-blue"></i>
+                <div class="card-title text-blue">Lihat Data Inventory</div>
+                <div class="card-subtitle">Daftar lengkap aset dan riwayat</div>
+                <div class="divider divider-blue"></div>
+            </a>
+            
+            <a href="https://forms.gle/KipLYadAKiyEDsLt7" target="_blank" class="action-card green-card">
+                <i class="fas fa-plus-circle icon-small text-green"></i>
+                <div class="card-title text-green">Tambahkan Data Inventory</div>
+                <div class="card-subtitle">Input aset baru ke dalam sistem</div>
+                <div class="divider divider-green"></div>
+            </a>
 
-        <a href="https://forms.gle/cpqGKyAkCyRQQDKNA" target="_blank" class="action-card red-card">
-            <i class="fas fa-wrench icon-small text-red"></i>
-            <div class="card-title text-red">Laporkan Kerusakan</div>
-            <div class="card-subtitle">Formulir darurat laporan alat rusak</div>
-            <div class="divider divider-red curve-bottom"></div>
-        </a>
-        
-        <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSCBpDrZVBd9ntn0CUtkuBPT6SWRw5rp4E8ZGkc8Mdf46foYB2aI3MCEvExPvfNGcxSirkFp8tNAmUP/pubhtml?gid=27150929&single=true" target="_blank" class="action-card teal-card">
-            <i class="fas fa-file-invoice icon-small text-teal"></i>
-            <div class="card-title text-teal">SOP Perawatan Alat</div>
-            <div class="card-subtitle">Panduan standar prosedur operasional</div>
-            <div class="divider divider-teal curve-bottom"></div>
-        </a>
+            <a href="https://forms.gle/cpqGKyAkCyRQQDKNA" target="_blank" class="action-card red-card">
+                <i class="fas fa-wrench icon-small text-red"></i>
+                <div class="card-title text-red">Laporkan Kerusakan</div>
+                <div class="card-subtitle">Formulir darurat laporan alat rusak</div>
+                <div class="divider divider-red"></div>
+            </a>
+            
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScxP8j4Yk3LLNuDZ_nQ18tRjj6TOMe4OwIMvxfn5JfXLG0Acg/viewform?usp=publish-editor" target="_blank" class="action-card purple-card">
+                <i class="fas fa-clipboard-check icon-small text-purple"></i>
+                <div class="card-title text-purple">Record Penggunaan Alat</div>
+                <div class="card-subtitle">Catatan riwayat pemakaian aset</div>
+                <div class="divider divider-purple"></div>
+            </a>
 
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLScxP8j4Yk3LLNuDZ_nQ18tRjj6TOMe4OwIMvxfn5JfXLG0Acg/viewform?usp=publish-editor" target="_blank" class="action-card purple-card">
-            <i class="fas fa-clipboard-check icon-small text-purple"></i>
-            <div class="card-title text-purple">Record Penggunaan Alat</div>
-            <div class="card-subtitle">Catatan riwayat pemakaian aset</div>
-            <div class="divider divider-purple curve-bottom"></div>
-        </a>
-        
-        <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSCBpDrZVBd9ntn0CUtkuBPT6SWRw5rp4E8ZGkc8Mdf46foYB2aI3MCEvExPvfNGcxSirkFp8tNAmUP/pubhtml?gid=1296554861&single=true" target="_blank" class="action-card gray-card">
-            <i class="fas fa-book-open icon-small text-gray"></i>
-            <div class="card-title text-gray">User Guide</div>
-            <div class="card-subtitle">Panduan penggunaan sistem</div>
-            <div class="divider divider-gray curve-bottom"></div>
-        </a>
+            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSCBpDrZVBd9ntn0CUtkuBPT6SWRw5rp4E8ZGkc8Mdf46foYB2aI3MCEvExPvfNGcxSirkFp8tNAmUP/pubhtml?gid=27150929&single=true" target="_blank" class="action-card teal-card">
+                <i class="fas fa-file-invoice icon-small text-teal"></i>
+                <div class="card-title text-teal">SOP Perawatan Alat</div>
+                <div class="card-subtitle">Panduan standar prosedur operasional</div>
+                <div class="divider divider-teal"></div>
+            </a>
+            
+            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSCBpDrZVBd9ntn0CUtkuBPT6SWRw5rp4E8ZGkc8Mdf46foYB2aI3MCEvExPvfNGcxSirkFp8tNAmUP/pubhtml?gid=1296554861&single=true" target="_blank" class="action-card gray-card">
+                <i class="fas fa-book-open icon-small text-gray"></i>
+                <div class="card-title text-gray">User Guide</div>
+                <div class="card-subtitle">Panduan penggunaan sistem</div>
+                <div class="divider divider-gray"></div>
+            </a>
+            
+        </div>
         
         <div class="footer">
             &copy; 2025 SISIRAN - SIStem Inventory & pelapoRan kerusakAN.
